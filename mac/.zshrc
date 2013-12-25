@@ -1,5 +1,7 @@
-# Set up the prompt
+export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
+export TERM=screen-256color       # for a tmux -2 session (also for screen)
 
+# Set up the prompt
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -23,7 +25,6 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -87,3 +88,8 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"    
+    alias ls="ls --color=auto"
+fi
