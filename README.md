@@ -1,8 +1,12 @@
 Evan's Dotfiles
 ======
 
--zsh settings, loosely based off of Mathias Bynens awesome dotfiles available here: https://github.com/mathiasbynens/dotfiles
+Contents
+-------
+* zsh settings, loosely based off of Mathias Bynens awesome dotfiles available here: https://github.com/mathiasbynens/dotfiles
 
--sublime settings
+* bash profile
 
--coming soon: gitconfigs
+* sublime settings
+
+* git configs
