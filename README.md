@@ -1,8 +1,8 @@
 Evan's Dotfiles
 ======
 
-Contents
--------
+My personal dotfiles. These include:
+
 * zsh settings, loosely based off of Mathias Bynens awesome dotfiles available here: https://github.com/mathiasbynens/dotfiles
 
 * bash profile
