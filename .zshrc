@@ -1,41 +1,48 @@
-# Set up the prompt
+# We're going to need UTF-8, badly
+export LANG=en_US.UTF-8
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+# Load and run compinit
+autoload -U compinit
+compinit -i
 
-setopt histignorealldups sharehistory
+# Enable globbing for hidden files, advanced globbing
+setopt GLOBDOTS
+setopt EXTENDEDGLOB
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# no clobbing
+setopt NO_CLOBBER
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zsh_history
+# Source all zsh config files excluding the plugins directory
+DOTFILES_DIR=$HOME/.dotfiles
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
+for config_file ($DOTFILES_DIR/**/*.zsh~($DOTFILES_DIR/plugins/*.zsh)(.))
+  source $config_file
 
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
+# Enable piping to multiple outputs
+setopt MULTIOS
 
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# Automaticall cd into directories when typing their name
+setopt AUTO_CD
+# no search for directories starting with ~
+#setopt CDABLE_VARS
 
+setopt AUTO_PUSHD
+setopt AUTO_MENU
+
+# be quiet!
+setopt NO_BEEP
+
+# Enable spelling correction
+setopt CORRECT
+
+# Homebrew
+if which brew > /dev/null 2>&1; then
+  export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
+fi
+
+export EDITOR=nano
+
+fpath=(~/.dotfiles/zsh/completions $fpath)
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -52,38 +59,4 @@ alias h="history"
 alias j="jobs"
 alias vi="vim"
 alias py="ipython"
-alias rm="~/bin/trashit"
 
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
-
-# List only directories
-alias lsd='ls -lF ${colorflag} | grep "^d"'
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
-
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
