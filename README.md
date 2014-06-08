@@ -8,3 +8,5 @@ My personal dotfiles. These include:
 * sublime settings
 
 * git configs
+
+* vim settings 
