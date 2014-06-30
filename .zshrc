@@ -1,3 +1,12 @@
+# Path to oh-my-zsh configuration
+ZSH=$HOME/.oh-my-zsh
+
+# Set zsh theme here
+ZSH_THEME="alanpeabody"
+
+# RubyGems path
+export PATH="/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin:$PATH"
+
 # We're going to need UTF-8, badly
 export LANG=en_US.UTF-8
 
@@ -32,9 +41,6 @@ setopt AUTO_MENU
 # be quiet!
 setopt NO_BEEP
 
-# Enable spelling correction
-setopt CORRECT
-
 # Homebrew
 if which brew > /dev/null 2>&1; then
   export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
@@ -43,6 +49,9 @@ fi
 export EDITOR=nano
 
 fpath=(~/.dotfiles/zsh/completions $fpath)
+
+source $ZSH/oh-my-zsh.sh
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -59,4 +68,3 @@ alias h="history"
 alias j="jobs"
 alias vi="vim"
 alias py="ipython"
-
