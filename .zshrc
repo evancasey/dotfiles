@@ -7,6 +7,9 @@ ZSH_THEME="alanpeabody"
 # RubyGems path
 export PATH="/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin:$PATH"
 
+# Maven path
+export PATH=/usr/local/apache-maven-3.2.2/bin:$PATH
+
 # We're going to need UTF-8, badly
 export LANG=en_US.UTF-8
 
@@ -19,7 +22,7 @@ setopt GLOBDOTS
 setopt EXTENDEDGLOB
 
 # no clobbing
-setopt NO_CLOBBER
+# setopt NO_CLOBBER
 
 # Source all zsh config files excluding the plugins directory
 DOTFILES_DIR=$HOME/.dotfiles
