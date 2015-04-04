@@ -112,5 +112,5 @@ avroscore() {
 ########################################################################
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.tapadrc
+source $HOME/Dropbox/.tapadrc
 
