@@ -94,10 +94,12 @@ alias vi="vim"
 alias py="ipython"
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
-alias avrocat="/Users/evan/bin/avrocat.sh $1"
-alias zshconf="vi ~/.zshrc"
-alias zshreload="source ~/.zshrc"
-alias tpconf="vi ~/.tapadrc"
+alias avrocat="~/Dropbox/avrocat.sh $1"
+alias zshconf="vi ~/Dropbox/.zshrc"
+alias zshreload="source ~/Dropbox/.zshrc"
+alias tpconf="vi ~/Dropbox/.tapadrc"
+alias vimconf="vi ~/Dropbox/.vimrc"
+
 
 ########################################################################
 # launchers
@@ -113,4 +115,3 @@ avroscore() {
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/Dropbox/.tapadrc
-

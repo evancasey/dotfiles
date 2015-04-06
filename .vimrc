@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VUNDLE (https://github.com/gmarik/Vundle.vim#about)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim/ " set the runtime path to include Vundle and initialize
+set rtp+=~/Dropbox/.vim/bundle/Vundle.vim/ " set the runtime path to include Vundle and initialize
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
@@ -35,7 +35,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTRLP 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/Dropbox/.vim/bundle/ctrlp.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHER 
