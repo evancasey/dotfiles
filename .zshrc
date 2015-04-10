@@ -85,13 +85,13 @@ alias dsf="cd ~/dev/DSP-frontend"
 alias sn="cd ~/dev/snippets"
 alias ca="cd ~/dev/creative-approval-api"
 
-########################################################################
-# misc. tool aliases
-########################################################################
-
 # standard aliases
 alias vi="vim"
 alias py="ipython"
+
+########################################################################
+# misc. tools
+########################################################################
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
 alias avrocat="~/Dropbox/avrocat.sh $1"
@@ -99,6 +99,11 @@ alias zshconf="vi ~/Dropbox/.zshrc"
 alias zshreload="source ~/Dropbox/.zshrc"
 alias tpconf="vi ~/Dropbox/.tapadrc"
 alias vimconf="vi ~/Dropbox/.vimrc"
+
+function grep_for_process() { 
+  ps -ax | grep -i $1
+}
+alias psg=grep_for_process
 
 
 ########################################################################
