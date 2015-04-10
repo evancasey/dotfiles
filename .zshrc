@@ -99,12 +99,20 @@ alias zshconf="vi ~/Dropbox/.zshrc"
 alias zshreload="source ~/Dropbox/.zshrc"
 alias tpconf="vi ~/Dropbox/.tapadrc"
 alias vimconf="vi ~/Dropbox/.vimrc"
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
+alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
-function grep_for_process() { 
+psg() { 
   ps -ax | grep -i $1
 }
-alias psg=grep_for_process
 
+find_big() {
+  n=$1
+  if [ $# -eq 0 ]; then
+      n=5
+  fi
+  find . -type f -exec ls -s {} \; | sort -n -r | head -$n
+}
 
 ########################################################################
 # launchers

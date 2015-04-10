@@ -26,6 +26,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORSCHEME (https://github.com/chriskempson/base16-vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set rtp+=~/Dropbox/.vim/bundle/vim-colors-solarized
 set background=dark
 colorscheme solarized
 if has("syntax")
