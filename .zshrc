@@ -2,8 +2,10 @@
 # zsh specific settings
 ########################################################################
 
+DOTFILES_HOME=$HOME/Dropbox/dotfiles
+
 # Path to oh-my-zsh configuration
-ZSH=$HOME/.oh-my-zsh
+ZSH=$DOTFILES_HOME/.oh-my-zsh
 
 # Set zsh theme here
 ZSH_THEME="alanpeabody"
@@ -32,7 +34,7 @@ setopt AUTO_MENU
 setopt NO_BEEP
 
 # Source all zsh config files excluding the plugins directory
-DOTFILES_DIR=$HOME/.dotfiles
+DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
 
 for config_file ($DOTFILES_DIR/**/*.zsh~($DOTFILES_DIR/plugins/*.zsh)(.))
   source $config_file
@@ -95,10 +97,10 @@ alias py="ipython"
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
 alias avrocat="~/Dropbox/avrocat.sh $1"
-alias zshconf="vi ~/Dropbox/.zshrc"
-alias zshreload="source ~/Dropbox/.zshrc"
-alias tpconf="vi ~/Dropbox/.tapadrc"
-alias vimconf="vi ~/Dropbox/.vimrc"
+alias zshconf="vi ~/Dropbox/dotfiles/.zshrc"
+alias zshreload="source ~/Dropbox/dotfiles/.zshrc"
+alias tpconf="vi ~/Dropbox/dotfiles/.tapadrc"
+alias vimconf="vi ~/Dropbox/dotfiles/.vimrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
@@ -127,4 +129,4 @@ avroscore() {
 ########################################################################
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/Dropbox/.tapadrc
+source $DOTFILES_HOME/.tapadrc
