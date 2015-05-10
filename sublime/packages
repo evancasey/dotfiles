@@ -1,0 +1,32 @@
+{
+	"auto_upgrade_last_run": null,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"CoffeeScript",
+		"DocBlockr",
+		"Emmet",
+		"Git",
+		"HTML5",
+		"Jade",
+		"JSLint",
+		"Package Control",
+		"Prefixr",
+		"Pretty JSON",
+		"PythonTidy",
+		"SideBarEnhancements",
+		"SML (Standard ML)",
+		"SublimeCodeIntel",
+		"sublimelint",
+		"SublimeLinter",
+		"Tag",
+		"Theme - Flatland",
+		"Theme - Soda",
+		"Theme - Spacegray",
+		"ZenCoding"
+	]
+}
+

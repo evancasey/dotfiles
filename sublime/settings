@@ -1,0 +1,14 @@
+{
+	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"default_encoding": "UTF-8",
+	"font_size": 13.0,
+	"ignored_packages":
+	[
+		"Vintage",
+		"Theme - Flatland",
+		"HTML5"
+	],
+	"tab_size": 2,
+	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true
+}
