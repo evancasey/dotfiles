@@ -1,1 +1,1 @@
-cp -r ~/Dropbox/dotfiles/. .
+cp -r ~/Dropbox/dotfiles/{.gitconfig,.vim,.vimrc,.zshrc} .
