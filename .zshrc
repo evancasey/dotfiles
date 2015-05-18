@@ -14,6 +14,14 @@ ZSH_THEME="alanpeabody"
 autoload -U compinit
 compinit -i
 
+# Source all zsh config files excluding the plugins directory
+DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
+
+for config_file ($DOTFILES_DIR/**/*.zsh~($DOTFILES_DIR/plugins/*.zsh)(.))
+  source $config_file
+
+source $ZSH/oh-my-zsh.sh
+
 # Enable globbing for hidden files, advanced globbing
 setopt GLOBDOTS
 setopt EXTENDEDGLOB
@@ -33,12 +41,9 @@ setopt AUTO_MENU
 # be quiet!
 setopt NO_BEEP
 
-# Source all zsh config files excluding the plugins directory
-DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
-
-for config_file ($DOTFILES_DIR/**/*.zsh~($DOTFILES_DIR/plugins/*.zsh)(.))
-  source $config_file
-
+# only enable autocorrect on commands
+unsetopt correct_all
+setopt correct
 
 ########################################################################
 # other config sources
@@ -132,5 +137,4 @@ avroscore() {
 # finish
 ########################################################################
 
-source $ZSH/oh-my-zsh.sh
 source $DOTFILES_HOME/.tapadrc
