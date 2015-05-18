@@ -17,8 +17,10 @@ compinit -i
 # Source all zsh config files excluding the plugins directory
 DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
 
-for config_file ($DOTFILES_DIR/**/*.zsh~($DOTFILES_DIR/plugins/*.zsh)(.))
+for config_file in $DOTFILES_DIR/zsh/*.zsh
+do
   source $config_file
+done
 
 source $ZSH/oh-my-zsh.sh
 
