@@ -109,7 +109,7 @@ alias avrocat="~/Dropbox/avrocat.sh $1"
 alias zshconf="vi ~/Dropbox/dotfiles/.zshrc"
 alias zshreload="source ~/Dropbox/dotfiles/.zshrc"
 alias tpconf="vi ~/Dropbox/dotfiles/.tapadrc"
-alias vimconf="vi ~/Dropbox/dotfiles/.vimrc"
+alias viconf="vi ~/Dropbox/dotfiles/.vimrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
