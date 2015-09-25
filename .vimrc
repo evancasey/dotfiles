@@ -51,5 +51,6 @@ set nocompatible              " be iMproved, required
 filetype plugin indent on  " required
 
 set number
-
+set splitright
+set splitbelow
 
