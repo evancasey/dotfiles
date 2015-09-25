@@ -68,7 +68,7 @@ if which brew > /dev/null 2>&1; then
   export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
 fi
 
-fpath=(~/.dotfiles/zsh/completions $fpath)
+fpath=(~/$DOTFILES_DIR/zsh/comletions $fpath)
 
 ########################################################################
 # aliases
@@ -86,9 +86,11 @@ alias dr="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dv="cd ~/dev"
+alias sn="cd ~/dev/snippets"
 alias ds="cd ~/dev/data-shipment"
 alias sc="cd ~/dev/scalding-jobs"
 alias pg="cd ~/dev/pig"
+alias pf="cd ~/dev/programmatic-front-end"
 alias dsb="cd ~/dev/DSP-backend/core"
 alias dsf="cd ~/dev/DSP-frontend"
 alias sn="cd ~/dev/snippets"
@@ -126,6 +128,13 @@ find_big() {
 gcl() {
   grep -i $1 $2 | wc -l
 }  
+
+########################################################################
+# vi-mode remappings
+########################################################################
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward
 
 ########################################################################
 # launchers
