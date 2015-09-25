@@ -1,1 +1,1 @@
-cp -r ~/Dropbox/dotfiles/{.gitconfig,.vim,.vimrc,.zshrc} .
+rsync -avzh ~/Dropbox/dotfiles/. ~/dev/dotfiles/.
