@@ -54,3 +54,4 @@ set number
 set splitright
 set splitbelow
 
+set clipboard=unnamed
