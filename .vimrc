@@ -47,11 +47,15 @@ endif
 " OTHER 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible              " be iMproved, required
-filetype plugin indent on  " required
+set nocompatible         
+filetype plugin indent on  " load filetype-specific indent files
 
-set number
+set number " show line numbers
 set splitright
 set splitbelow
 
 set clipboard=unnamed
+set showcmd " show command in bottom bar
+set cursorline " highlight current line
+
+set wildmenu

@@ -114,6 +114,7 @@ alias tpconf="vi ~/Dropbox/dotfiles/.tapadrc"
 alias viconf="vi ~/Dropbox/dotfiles/.vimrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
+alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
 
 psg() { 
   ps -ax | grep -i $1
@@ -193,12 +194,16 @@ bindkey '^U'   pb-kill-whole-line
 bindkey '\e^?' pb-backward-kill-word
 bindkey '\e^H' pb-backward-kill-word
 bindkey '^W'   pb-backward-kill-word
-bindkey '\ed'  pb-kill-word
-bindkey '\eD'  pb-kill-word
+bindkey '^D'   pb-kill-word
 bindkey '^X^K' pb-kill-buffer
 bindkey '\ew'  pb-copy-region-as-kill-deactivate-mark
 bindkey '\eW'  pb-copy-region-as-kill-deactivate-mark
 bindkey '^Y'   pb-yank
+
+bindkey '^B' backward-word
+bindkey '^W' forward-word
+bindkey '^H' backward-char
+bindkey '^L' forward-char
 
 ########################################################################
 # launchers
