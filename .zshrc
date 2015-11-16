@@ -107,7 +107,7 @@ alias py="ipython"
 ########################################################################
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
-alias avrocat="~/Dropbox/avrocat.sh $1"
+alias avt="java -jar ~/Dropbox/avro-tools-1.7.7.jar tojson $1"
 alias zshconf="vi ~/Dropbox/dotfiles/.zshrc"
 alias zshreload="source ~/Dropbox/dotfiles/.zshrc"
 alias tpconf="vi ~/Dropbox/dotfiles/.tapadrc"
@@ -204,14 +204,6 @@ bindkey '^B' backward-word
 bindkey '^W' forward-word
 bindkey '^H' backward-char
 bindkey '^L' forward-char
-
-########################################################################
-# launchers
-########################################################################
-
-avroscore() {
-  python ~/dev/avroscore/avroscore.py "$@"	
-}
 
 ########################################################################
 # finish
