@@ -4,6 +4,8 @@
 
 DOTFILES_HOME=$HOME/Dropbox/dotfiles
 
+DISABLE_AUTO_UPDATE=true
+
 # Path to oh-my-zsh configuration
 ZSH=$DOTFILES_HOME/.oh-my-zsh
 
@@ -43,11 +45,13 @@ setopt AUTO_MENU
 # be quiet!
 setopt NO_BEEP
 
+setopt complete_aliases
+
 # only enable autocorrect on commands
 unsetopt correct_all
 setopt correct
 
-set -o emacs
+set -o vi
 
 ########################################################################
 # other config sources
@@ -70,7 +74,7 @@ if which brew > /dev/null 2>&1; then
   export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
 fi
 
-fpath=(~/$DOTFILES_DIR/zsh/comletions $fpath)
+fpath=(~/$DOTFILES_DIR/zsh/completions $fpath)
 
 ########################################################################
 # aliases
@@ -97,10 +101,12 @@ alias dsb="cd ~/dev/DSP-backend/core"
 alias dsf="cd ~/dev/DSP-frontend"
 alias sn="cd ~/dev/snippets"
 alias ca="cd ~/dev/creative-approval-api"
+alias dg4="cd ~/dev/devicegraph-4"
 
 # standard aliases
 alias vi="mvim -v"
 alias py="ipython"
+alias ssh="sshrc $1"
 
 ########################################################################
 # misc. tools
@@ -108,10 +114,11 @@ alias py="ipython"
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
 alias avt="java -jar ~/Dropbox/avro-tools-1.7.7.jar tojson $1"
-alias zshconf="vi ~/Dropbox/dotfiles/.zshrc"
-alias zshreload="source ~/Dropbox/dotfiles/.zshrc"
-alias tpconf="vi ~/Dropbox/dotfiles/.tapadrc"
-alias viconf="vi ~/Dropbox/dotfiles/.vimrc"
+alias zshreload="source $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
+alias zshconf="vi $DOTFILES_HOME/.zshrc"
+alias tpconf="vi $DOTFILES_HOME/.tapadrc"
+alias viconf="vi $DOTFILES_HOME/.vimrc"
+alias sshconf="vi $DOTFILES_HOME/.sshrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
@@ -133,8 +140,24 @@ gcl() {
 }  
 
 ########################################################################
+# bash completions
+########################################################################
+
+autoload bashcompinit
+bashcompinit
+source /usr/local/etc/bash_completion.d
+source $DOTFILES_HOME/snakebite_completion.sh
+
+########################################################################
 # key bindings
 ########################################################################
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 #copyline() { 
 #  printf %s "$READLINE_LINE" | pbcopy; 
@@ -142,71 +165,11 @@ gcl() {
 
 #zle -N copyline
 #bindkey '\C-k' copyline
-#
-bindkey -e
-
-pb-kill-line () {
-  zle kill-line
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-kill-whole-line () {
-  zle kill-whole-line
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-backward-kill-word () {
-  zle backward-kill-word
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-kill-word () {
-  zle kill-word
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-kill-buffer () {
-  zle kill-buffer
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-copy-region-as-kill-deactivate-mark () {
-  zle copy-region-as-kill
-  zle set-mark-command -n -1
-  echo -n $CUTBUFFER | pbcopy
-}
-
-pb-yank () {
-  CUTBUFFER=$(pbpaste)
-  zle yank
-}
-
-zle -N pb-kill-line
-zle -N pb-kill-whole-line
-zle -N pb-backward-kill-word
-zle -N pb-kill-word
-zle -N pb-kill-buffer
-zle -N pb-copy-region-as-kill-deactivate-mark
-zle -N pb-yank
-
-bindkey '^K'   pb-kill-line
-bindkey '^U'   pb-kill-whole-line
-bindkey '\e^?' pb-backward-kill-word
-bindkey '\e^H' pb-backward-kill-word
-bindkey '^W'   pb-backward-kill-word
-bindkey '^D'   pb-kill-word
-bindkey '^X^K' pb-kill-buffer
-bindkey '\ew'  pb-copy-region-as-kill-deactivate-mark
-bindkey '\eW'  pb-copy-region-as-kill-deactivate-mark
-bindkey '^Y'   pb-yank
-
-bindkey '^B' backward-word
-bindkey '^W' forward-word
-bindkey '^H' backward-char
-bindkey '^L' forward-char
 
 ########################################################################
 # finish
 ########################################################################
-
 source $DOTFILES_HOME/.tapadrc
+
+# make sure sshrc is in sync
+cp -f $DOTFILES_HOME/.sshrc $HOME/.
