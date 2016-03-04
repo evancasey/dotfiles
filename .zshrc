@@ -102,6 +102,7 @@ alias dsf="cd ~/dev/DSP-frontend"
 alias sn="cd ~/dev/snippets"
 alias ca="cd ~/dev/creative-approval-api"
 alias dg4="cd ~/dev/devicegraph-4"
+alias ch="cd ~/dev/common-hadoop"
 
 # standard aliases
 alias vi="mvim -v"
@@ -117,8 +118,8 @@ alias avt="java -jar ~/Dropbox/avro-tools-1.7.7.jar tojson $1"
 alias zshreload="source $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
 alias zshconf="vi $DOTFILES_HOME/.zshrc"
 alias tpconf="vi $DOTFILES_HOME/.tapadrc"
-alias viconf="vi $DOTFILES_HOME/.vimrc"
-alias sshconf="vi $DOTFILES_HOME/.sshrc"
+alias viconf="vi $DOTFILES_HOME/.vimrc && rsync $DOTFILES_HOME/.vimrc $HOME/."
+alias sshconf="vi $DOTFILES_HOME/.sshrc && rsync $DOTFILES_HOME/.sshrc $HOME/."
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
@@ -138,6 +139,9 @@ find_big() {
 gcl() {
   grep -i $1 $2 | wc -l
 }  
+
+
+ts() { python -c "from datetime import datetime; print(datetime.fromtimestamp($1/1000).strftime('%Y-%m-%d %H:%M:%S.%f'))" }
 
 ########################################################################
 # bash completions
@@ -170,6 +174,3 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # finish
 ########################################################################
 source $DOTFILES_HOME/.tapadrc
-
-# make sure sshrc is in sync
-cp -f $DOTFILES_HOME/.sshrc $HOME/.

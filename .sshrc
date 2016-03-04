@@ -1,2 +1,2 @@
 set -o vi
-PS1='[\u@\h \w]\$ '
+PS1='[\u@$(hostname -f) \w]\$ '
