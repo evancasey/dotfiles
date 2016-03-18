@@ -44,6 +44,13 @@ if executable('ag')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTREE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeWinSize = 30
+let NERDTreeQuitOnOpen = 1
+nnoremap ,n :NERDTree<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OTHER 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -59,3 +66,4 @@ set showcmd " show command in bottom bar
 set cursorline " highlight current line
 
 set wildmenu
+
