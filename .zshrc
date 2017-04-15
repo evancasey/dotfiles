@@ -63,8 +63,15 @@ export PATH="/usr/local/mysql/bin:$PATH"
 # Path to sbt
 export PATH="/Users/evan/bin:$PATH"
 
-# Path to RubyGems
-export PATH="/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin:$PATH"
+# Path to jdk
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home
+
+# Path to Mujoco deps
+export MUJOCO_PY_MJKEY_PATH=$HOME/bin/mjkey.txt
+export MUJOCO_PY_MJPRO_PATH=$HOME/bin/mjpro131
+
+# Path to virtualenvwrapper script
+source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
 
 # We're going to need UTF-8, badly
 export LANG=en_US.UTF-8
@@ -93,16 +100,8 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dv="cd ~/dev"
 alias sn="cd ~/dev/snippets"
-alias ds="cd ~/dev/data-shipment"
-alias sc="cd ~/dev/scalding-jobs"
-alias pg="cd ~/dev/pig"
-alias pf="cd ~/dev/programmatic-front-end"
-alias dsb="cd ~/dev/DSP-backend/core"
-alias dsf="cd ~/dev/DSP-frontend"
-alias sn="cd ~/dev/snippets"
-alias ca="cd ~/dev/creative-approval-api"
-alias dg4="cd ~/dev/devicegraph-4"
-alias ch="cd ~/dev/common-hadoop"
+alias nr="cd ~/dev/narrative"
+alias dm="cd ~/dev/demeter"
 
 # standard aliases
 alias vi="mvim -v"
@@ -123,6 +122,7 @@ alias sshconf="vi $DOTFILES_HOME/.sshrc && rsync $DOTFILES_HOME/.sshrc $HOME/."
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
+alias nr="cd ~/dev/narrative"
 
 psg() { 
   ps -ax | grep -i $1
@@ -140,8 +140,13 @@ gcl() {
   grep -i $1 $2 | wc -l
 }  
 
-
 ts() { python -c "from datetime import datetime; print(datetime.fromtimestamp($1/1000).strftime('%Y-%m-%d %H:%M:%S.%f'))" }
+
+start_zulip() {
+  pushd ~/opt/zulip-electron
+  nohup npm start &
+  popd
+}
 
 ########################################################################
 # bash completions
@@ -150,7 +155,6 @@ ts() { python -c "from datetime import datetime; print(datetime.fromtimestamp($1
 autoload bashcompinit
 bashcompinit
 source /usr/local/etc/bash_completion.d
-source $DOTFILES_HOME/snakebite_completion.sh
 
 ########################################################################
 # key bindings
@@ -162,15 +166,3 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-
-#copyline() { 
-#  printf %s "$READLINE_LINE" | pbcopy; 
-#}
-
-#zle -N copyline
-#bindkey '\C-k' copyline
-
-########################################################################
-# finish
-########################################################################
-source $DOTFILES_HOME/.tapadrc
