@@ -70,11 +70,17 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home
 export MUJOCO_PY_MJKEY_PATH=$HOME/bin/mjkey.txt
 export MUJOCO_PY_MJPRO_PATH=$HOME/bin/mjpro131
 
+# Hadoop home
+export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
+
 # Path to virtualenvwrapper script
 source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
 
 # We're going to need UTF-8, badly
 export LANG=en_US.UTF-8
+
+# Path to Anaconda
+export PATH="/Users/Evan/bin/miniconda3/bin:$PATH"
 
 # Homebrew
 if which brew > /dev/null 2>&1; then
@@ -102,6 +108,7 @@ alias dv="cd ~/dev"
 alias sn="cd ~/dev/snippets"
 alias nr="cd ~/dev/narrative"
 alias dm="cd ~/dev/demeter"
+alias ai="cd ~/dev/aireverie"
 
 # standard aliases
 alias vi="mvim -v"
