@@ -72,8 +72,6 @@ let g:livepreview_previewer = 'open -a Skim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SYNTACTIC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/Dropbox/dotfiles/.vim/bundle/syntastic
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

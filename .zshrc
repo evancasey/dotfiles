@@ -2,6 +2,7 @@
 # zsh specific settings
 ########################################################################
 
+DOTFILES_HOME=$HOME/Dropbox/dotfiles
 
 DISABLE_AUTO_UPDATE=true
 
@@ -16,7 +17,6 @@ autoload -U compinit
 compinit -i
 
 # Source all zsh config files excluding the plugins directory
-DOTFILES_HOME=$HOME/Dropbox/dotfiles
 DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
 for config_file in $DOTFILES_DIR/zsh/*.zsh
 do
@@ -71,10 +71,6 @@ export MUJOCO_PY_MJPRO_PATH=$HOME/bin/mjpro131
 
 # Hadoop home
 export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
-
-# CUDA home
-export CUDA_HOME="/usr/local/cuda-8.0"
-export PATH="${CUDA_HOME}/bin:$PATH"
 
 # Path to virtualenvwrapper script
 source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
@@ -134,6 +130,7 @@ alias sshconf="vi $DOTFILES_HOME/.sshrc && rsync $DOTFILES_HOME/.sshrc $HOME/."
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
+alias nr="cd ~/dev/narrative"
 
 psg() { 
   ps -ax | grep -i $1
@@ -146,6 +143,10 @@ find_big() {
   fi
   find . -type f -exec ls -s {} \; | sort -n -r | head -$n
 }
+
+gcl() {
+  grep -i $1 $2 | wc -l
+}  
 
 ts() { python -c "from datetime import datetime; print(datetime.fromtimestamp($1/1000).strftime('%Y-%m-%d %H:%M:%S.%f'))" }
 
