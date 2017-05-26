@@ -1,1 +1,1 @@
-rsync -avzh ~/dev/dotfiles/. ~/Dropbox/dotfiles/. 
+rsync -avzh --exclude '.git' ~/dev/dotfiles/. ~/Dropbox/dotfiles/. 
