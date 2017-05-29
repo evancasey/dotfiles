@@ -9,7 +9,7 @@ wget -P $VUNDLE_HOME https://github.com/VundleVim/Vundle.vim/archive/master.zip
 
 cd $VUNDLE_HOME \
   && unzip master.zip \
-  && mv Vundle.Vim-master Vundle.vim \
+  && mv Vundle.vim-master Vundle.vim \
   && rm master.zip
 
 vim +PluginInstall +qall
