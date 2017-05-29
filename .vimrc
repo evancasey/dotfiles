@@ -30,7 +30,7 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORSCHEME (https://github.com/chriskempson/base16-vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/Dropbox/dotfiles/.vim/bundle/vim-colors-solarized
+set rtp+=~/.vim/bundle/vim-colors-solarized
 set background=dark
 colorscheme solarized
 if has("syntax")
@@ -40,7 +40,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTRLP 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/Dropbox/dotfiles/.vim/bundle/ctrlp.vim
+set rtp+=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
