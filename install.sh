@@ -1,12 +1,14 @@
 curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /usr/bin/zsh
 
-DOTFILES_HOME=$HOME/Dropbox/dotfiles
+wget https://github.com/evancasey/dotfiles/raw/master/.vimrc -P $HOME
+wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -P $HOME
 
-cp $DOTFILES_HOME/.vimrc $HOME
-cp $DOTFILES_HOME/.zshrc $HOME
+VUNDLE_HOME='$HOME/.vim/bundle'
 
-wget https://github.com/VundleVim/Vundle.vim/archive/master.zip \
-  && unzip master.zip -d ~/.vim/bundle/Vundle.vim \
+wget $VUNDLE_HOME https://github.com/VundleVim/Vundle.vim/archive/master.zip \
+
+cd $VUNDLE_HOME \
+  && unzip master.zip -d Vundle.vim \
   && rm master.zip
 
 vim +PluginInstall +qall
