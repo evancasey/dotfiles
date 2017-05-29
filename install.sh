@@ -19,7 +19,7 @@ cd $VUNDLE_HOME \
 
 COLORS_HOME=$HOME/.vim/colors
 mkdir -p $COLORS_HOME
-wget https://github.com/evancasey/dotfiles/raw/master.solarized.vim -P $COLORS_HOME
+wget https://github.com/evancasey/dotfiles/raw/master/solarized.vim -P $COLORS_HOME
 
 vim +PluginInstall +qall
 
