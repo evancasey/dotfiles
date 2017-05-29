@@ -5,7 +5,7 @@ wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -P $HOME
 
 VUNDLE_HOME='$HOME/.vim/bundle'
 
-wget $VUNDLE_HOME https://github.com/VundleVim/Vundle.vim/archive/master.zip \
+wget -P $VUNDLE_HOME https://github.com/VundleVim/Vundle.vim/archive/master.zip \
 
 cd $VUNDLE_HOME \
   && unzip master.zip -d Vundle.vim \
