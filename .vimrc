@@ -12,7 +12,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'godlygeek/tabular'
-" non-builtin syntax highlighting
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pbrisbin/vim-syntax-shakespeare'
 Plugin 'scrooloose/syntastic'
@@ -24,11 +23,12 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COLORSCHEME (https://github.com/chriskempson/base16-vim)
+" COLORSCHEME 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vim-colors-solarized
 set background=dark

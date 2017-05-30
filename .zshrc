@@ -180,10 +180,15 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # TODO: move to .cgtrc
 ########################################################################
 
-#source /opt/ros/kinetic/setup.zsh
 export SONY_HOME=$HOME/sony
 export PATH=$PATH:$HOME/sony/docker/bin
 source $SONY_HOME/sony_ws/devel/setup.zsh
 
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
 alias sn="cd $SONY_HOME"
+
+build_sony() {
+  source ~/sony/ros_overlay_ws/install_isolated/setup.zsh
+  cd ~/sony/sony_ws
+  catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo
+}
