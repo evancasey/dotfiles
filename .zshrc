@@ -189,7 +189,8 @@ alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/n
 alias sn="cd $SONY_HOME"
 
 build_sony() {
-  source ~/sony/ros_overlay_ws/install_isolated/setup.zsh
+  source $SONY_HOME/ros_overlay_ws/install_isolated/setup.zsh
   cd ~/sony/sony_ws
   catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo
+  source $SONY_HOME/sony_ws/devel/setup.zsh
 }
