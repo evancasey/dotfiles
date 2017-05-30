@@ -7,13 +7,13 @@ VUNDLE_HOME=$HOME/.vim/bundle
 
 mkdir -p $VUNDLE_HOME && cd $VUNDLE_HOME
 
-wget -O Vundle.vim https://github.com/VundleVim/Vundle.vim/archive/master.zip
+wget -O Vundle.vim.zip https://github.com/VundleVim/Vundle.vim/archive/master.zip
 
 unzip Vundle.vim.zip \
   && mv Vundle.vim-master Vundle.vim \
   && rm Vundle.vim.zip
 
-wget -O vim-colors-solarized https://github.com/altercation/vim-colors-solarized/archive/master.zip
+wget -O vim-colors-solarized.zip https://github.com/altercation/vim-colors-solarized/archive/master.zip
 
 unzip vim-colors-solarized.zip \
   && mv vim-colors-solarized-master vim-colors-solarized \
