@@ -76,7 +76,8 @@ export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
 source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
 
 # We're going to need UTF-8, badly
-export LANG=en_US.UTF-8
+export LC_ALL=en_US.utf-8
+export LANG=$LC_ALL
 
 # Path to Anaconda
 export PATH="/Users/Evan/bin/miniconda3/bin:$PATH"
