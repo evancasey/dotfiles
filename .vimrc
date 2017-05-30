@@ -61,6 +61,7 @@ let NERDTreeQuitOnOpen = 1
 nnoremap ,n :NERDTree<CR>
 let g:NERDTreeMapOpenSplit = '<C-x>'
 let g:NERDTreeMapOpenVSplit = '<C-v>'
+set encoding=utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LATEX
