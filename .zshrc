@@ -75,12 +75,6 @@ export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
 # Path to virtualenvwrapper script
 source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
 
-# We're going to need UTF-8, badly
-export LANG=en_US.utf-8
-
-# Path to Anaconda
-export PATH="/Users/Evan/bin/miniconda3/bin:$PATH"
-
 # Homebrew
 if which brew > /dev/null 2>&1; then
   export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
