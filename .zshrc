@@ -1,160 +1,95 @@
-########################################################################
-# zsh specific settings
-########################################################################
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-DOTFILES_HOME=$HOME/Dropbox/dotfiles
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-DISABLE_AUTO_UPDATE=true
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# Path to oh-my-zsh configuration
-ZSH=$HOME/.oh-my-zsh
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Set zsh theme here
-ZSH_THEME="alanpeabody"
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Load and run compinit
-autoload -U compinit
-compinit -i
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Source all zsh config files excluding the plugins directory
-DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
-for config_file in $DOTFILES_DIR/zsh/*.zsh
-do
-  source $config_file
-done
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Enable globbing for hidden files, advanced globbing
-#setopt GLOBDOTS
-#setopt EXTENDEDGLOB
+# User configuration
 
-# no clobbing
-#setopt NO_CLOBBER
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Enable piping to multiple outputs
-#setopt MULTIOS
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# Automaticall cd into directories when typing their name
-#setopt AUTO_CD
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-#setopt AUTO_PUSHD
-#setopt AUTO_MENU
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# be quiet!
-#setopt NO_BEEP
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-#setopt complete_aliases
-
-# only enable autocorrect on commands
-#unsetopt correct_all
-#setopt correct
-
-#set -o vi
-
-########################################################################
-# other config sources
-########################################################################
-
-# Path to mysql
-#export PATH="/usr/local/mysql/bin:$PATH"
-
-# Path to sbt
-#export PATH="/Users/evan/bin:$PATH"
-
-# Path to jdk
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home
-
-# Path to Mujoco deps
-#export MUJOCO_PY_MJKEY_PATH=$HOME/bin/mjkey.txt
-#export MUJOCO_PY_MJPRO_PATH=$HOME/bin/mjpro131
-
-# Hadoop home
-#export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
-
-# Path to virtualenvwrapper script
-#source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
-
-# We're going to need UTF-8, badly
-export LANG=en_US.utf-8
-
-# Path to Anaconda
-#export PATH="/Users/Evan/bin/miniconda3/bin:$PATH"
-
-# Homebrew
-#if which brew > /dev/null 2>&1; then
-#  export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/sharepython:/usr/local/share/npm/bin:$PATH
-#fi
-
-fpath=(~/$DOTFILES_DIR/zsh/completions $fpath)
-
-########################################################################
-# aliases
-########################################################################
-
-#alias ..="cd .."
-#alias ...="cd ../.."
-#alias ....="cd ../../.."
-#alias .....="cd ../../../.."
-#alias ~="cd ~" # `cd` is probably faster to type though
-#alias -- -="cd -"
-
-# local dir aliases
-#alias dr="cd ~/Dropbox"
-#alias dl="cd ~/Downloads"
-#alias dt="cd ~/Desktop"
-#alias dv="cd ~/dev"
-#alias sn="cd ~/dev/snippets"
-#alias nr="cd ~/dev/narrative"
-#alias dm="cd ~/dev/demeter"
-#alias ai="cd ~/dev/aireverie"
-#alias nr="cd ~/dev/narrative"
-
-# standard aliases
-#alias vi="vim"
-#alias python="python3"
-#alias pip="pip3"
-#alias py="ipython3"
-#alias ssh="sshrc $1"
-
-########################################################################
-# misc. tools
-########################################################################
-
-#alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
-alias zshreload="source $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
-alias zshconf="vi $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
-alias viconf="vi $DOTFILES_HOME/.vimrc && rsync $DOTFILES_HOME/.vimrc $HOME/."
-#alias sshconf="vi $DOTFILES_HOME/.sshrc && rsync $DOTFILES_HOME/.sshrc $HOME/."
-#alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
-#alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
-#alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
-
-########################################################################
-# bash completions
-########################################################################
-
-#autoload bashcompinit
-#bashcompinit
-#source $DOTFILES_HOME/bash_completion.d
-
-########################################################################
-# key bindings
-########################################################################
-
-#autoload -U up-line-or-beginning-search
-#autoload -U down-line-or-beginning-search
-#zle -N up-line-or-beginning-search
-#zle -N down-line-or-beginning-search
-#bindkey "^[[A" up-line-or-beginning-search # Up
-#bindkey "^[[B" down-line-or-beginning-search # Down
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ########################################################################
 # Cogitai 
 # TODO: move to .cgtrc
 ########################################################################
 
-export SONY_HOME=$HOME/sony
+SONY_HOME=$HOME/sony
 #export PATH=$PATH:$HOME/sony/docker/bin
 #source $SONY_HOME/sony_ws/devel/setup.zsh
 
