@@ -26,31 +26,31 @@ done
 source $ZSH/oh-my-zsh.sh
 
 # Enable globbing for hidden files, advanced globbing
-setopt GLOBDOTS
-setopt EXTENDEDGLOB
+#setopt GLOBDOTS
+#setopt EXTENDEDGLOB
 
 # no clobbing
-setopt NO_CLOBBER
+#setopt NO_CLOBBER
 
 # Enable piping to multiple outputs
-setopt MULTIOS
+#setopt MULTIOS
 
 # Automaticall cd into directories when typing their name
-setopt AUTO_CD
+#setopt AUTO_CD
 
-setopt AUTO_PUSHD
-setopt AUTO_MENU
+#setopt AUTO_PUSHD
+#setopt AUTO_MENU
 
 # be quiet!
-setopt NO_BEEP
+#setopt NO_BEEP
 
-setopt complete_aliases
+#setopt complete_aliases
 
 # only enable autocorrect on commands
-unsetopt correct_all
-setopt correct
+#unsetopt correct_all
+#setopt correct
 
-set -o vi
+#set -o vi
 
 ########################################################################
 # other config sources
@@ -111,11 +111,11 @@ fpath=(~/$DOTFILES_DIR/zsh/completions $fpath)
 #alias nr="cd ~/dev/narrative"
 
 # standard aliases
-alias vi="vim"
-alias python="python3"
-alias pip="pip3"
-alias py="ipython3"
-alias ssh="sshrc $1"
+#alias vi="vim"
+#alias python="python3"
+#alias pip="pip3"
+#alias py="ipython3"
+#alias ssh="sshrc $1"
 
 ########################################################################
 # misc. tools
@@ -154,7 +154,7 @@ alias viconf="vi $DOTFILES_HOME/.vimrc && rsync $DOTFILES_HOME/.vimrc $HOME/."
 # TODO: move to .cgtrc
 ########################################################################
 
-#export SONY_HOME=$HOME/sony
+export SONY_HOME=$HOME/sony
 #export PATH=$PATH:$HOME/sony/docker/bin
 #source $SONY_HOME/sony_ws/devel/setup.zsh
 
