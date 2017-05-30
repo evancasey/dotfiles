@@ -23,7 +23,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
