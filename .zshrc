@@ -10,7 +10,7 @@ DISABLE_AUTO_UPDATE=true
 ZSH=$HOME/.oh-my-zsh
 
 # Set zsh theme here
-ZSH_THEME="alanpeabody"
+ZSH_THEME='fishy'
 
 # Load and run compinit
 autoload -U compinit
