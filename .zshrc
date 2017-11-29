@@ -234,7 +234,7 @@ function _zle_line_finish() {
 
 export ROBO_HOME=$HOME/robotics_dev
 export PATH=$PATH:$HOME/robotics_dev/docker/bin
-# source $ROBO_HOME/dev_ws/devel/setup.zsh
+source $ROBO_HOME/dev_ws/devel/setup.zsh
 
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
 
