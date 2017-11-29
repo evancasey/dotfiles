@@ -1,7 +1,7 @@
 curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /usr/bin/zsh
 
-wget https://github.com/evancasey/dotfiles/raw/master/.vimrc -P $HOME
-wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -P $HOME
+wget https://github.com/evancasey/dotfiles/raw/master/.vimrc -O $HOME/.vimrc
+wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -O $HOME/.zshrc
 
 VUNDLE_HOME=$HOME/.vim/bundle
 
