@@ -232,18 +232,16 @@ function _zle_line_finish() {
 # TODO: move to .cgtrc
 ########################################################################
 
-export SONY_HOME=$HOME/sony
-export PATH=$PATH:$HOME/sony/docker/bin
-source $SONY_HOME/sony_ws/devel/setup.zsh
+export ROBO_HOME=$HOME/robotics_dev
+export PATH=$PATH:$HOME/robotics_dev/docker/bin
+# source $ROBO_HOME/dev_ws/devel/setup.zsh
 
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
-alias sn="cd $SONY_HOME"
 
-build_sony() {
-  source $SONY_HOME/ros_overlay_ws/install_isolated/setup.zsh
-  cd ~/sony/sony_ws
+build_robo() {
+  cd $ROBO_HOME/dev_ws
   catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  source $SONY_HOME/sony_ws/devel/setup.zsh
+  source $ROBO_HOME/dev_ws/devel/setup.zsh
 }
 
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
