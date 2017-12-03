@@ -1,4 +1,6 @@
-curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | /usr/bin/zsh
+ZSH=$(which zsh)
+
+curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | $ZSH
 
 wget https://github.com/evancasey/dotfiles/raw/master/.vimrc -O $HOME/.vimrc
 wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -O $HOME/.zshrc
