@@ -16,13 +16,6 @@ ZSH_THEME='fishy'
 autoload -U compinit
 compinit -i
 
-# Source all zsh config files excluding the plugins directory
-DOTFILES_DIR=$DOTFILES_HOME/.dotfiles
-for config_file in $DOTFILES_DIR/zsh/*.zsh
-do
-  source $config_file
-done
-
 source $ZSH/oh-my-zsh.sh
 
 # Enable globbing for hidden files, advanced globbing
@@ -114,14 +107,12 @@ alias py="ipython"
 
 alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
 alias avt="java -jar ~/Dropbox/avro-tools-1.7.7.jar tojson $1"
-alias zshreload="source $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
-alias zshconf="vi $DOTFILES_HOME/.zshrc && rsync $DOTFILES_HOME/.zshrc $HOME/."
-alias viconf="vi $DOTFILES_HOME/.vimrc && rsync $DOTFILES_HOME/.vimrc $HOME/."
-alias sshconf="vi $DOTFILES_HOME/.sshrc && rsync $DOTFILES_HOME/.sshrc $HOME/."
+alias zshreload="source $DOTFILES_HOME/.zshrc"
+alias zshconf="vi $DOTFILES_HOME/.zshrc"
+alias viconf="vi $DOTFILES_HOME/.vimrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
-alias nr="cd ~/dev/narrative"
 
 psg() { 
   ps -ax | grep -i $1
