@@ -30,7 +30,7 @@ call vundle#end()
 " COLORSCHEME 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vim-colors-solarized
-set background=dark
+set background=light
 colorscheme solarized
 if has("syntax")
 	syntax enable

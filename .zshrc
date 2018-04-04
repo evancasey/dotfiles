@@ -106,10 +106,7 @@ alias nr="cd ~/dev/narrative"
 
 # standard aliases
 alias vi="vim"
-alias python="python3"
-alias pip="pip3"
-alias py="ipython3"
-alias ssh="sshrc $1"
+alias py="ipython"
 
 ########################################################################
 # misc. tools
@@ -237,6 +234,7 @@ export PATH=$PATH:$HOME/robotics_dev/docker/bin
 source $ROBO_HOME/dev_ws/devel/setup.zsh
 
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
+alias robo="$ROBO_HOME/dev_ws/src/cogitai_robotics"
 
 build_robo() {
   cd $ROBO_HOME/dev_ws
@@ -244,9 +242,17 @@ build_robo() {
   source $ROBO_HOME/dev_ws/devel/setup.zsh
 }
 
+# cuda
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
+alias nvidia-smi="watch -n0.1 nvidia-smi"
+alias autopep="py $ROBO_HOME/dev_ws/src/cogitai_robotics/config/autopep.py"
+
 # TODO: do not set on osx
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy='xclip -selection clipboard'
+#alias pbpaste='xclip -selection clipboard -o'
+
+# miniconda
+export PATH=/home/evan/miniconda3/bin:$PATH
+
