@@ -101,6 +101,11 @@ alias nr="cd ~/dev/narrative"
 alias vi="vim"
 alias py="ipython"
 
+# work aliases
+alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
+alias robo="$HOME/robotics_dev/dev_ws/src/cogitai_robotics"
+alias ab="$HOME/dev/arbiter_platform_bridge"
+
 ########################################################################
 # misc. tools
 ########################################################################
@@ -113,6 +118,8 @@ alias viconf="vi $DOTFILES_HOME/.vimrc"
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
+alias nvidia-smi="watch -n0.1 nvidia-smi"
+alias autopep="py $HOME/robotics_dev/dev_ws/src/cogitai_robotics/bin/autopep.py"
 
 psg() { 
   ps -ax | grep -i $1
@@ -216,29 +223,14 @@ function _zle_line_finish() {
 }
 
 ########################################################################
-# Cogitai 
-# TODO: move to .cgtrc
+# misc
 ########################################################################
 
-export ROBO_HOME=$HOME/robotics_dev
 export PATH=$PATH:$HOME/robotics_dev/docker/bin
-# source $ROBO_HOME/dev_ws/devel/setup.zsh
-
-alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
-alias robo="$ROBO_HOME/dev_ws/src/cogitai_robotics"
-
-build_robo() {
-  cd $ROBO_HOME/dev_ws
-  catkin_make -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  source $ROBO_HOME/dev_ws/devel/setup.zsh
-}
 
 # cuda
 export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-alias nvidia-smi="watch -n0.1 nvidia-smi"
-alias autopep="py $ROBO_HOME/dev_ws/src/cogitai_robotics/config/autopep.py"
 
 # TODO: do not set on osx
 #alias pbcopy='xclip -selection clipboard'
