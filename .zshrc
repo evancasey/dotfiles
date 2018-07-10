@@ -49,14 +49,19 @@ set -o vi
 # other config sources
 ########################################################################
 
+export PATH="/Users/evan/bin:$PATH"
+
 # Path to mysql
 export PATH="/usr/local/mysql/bin:$PATH"
 
-# Path to sbt
-export PATH="/Users/evan/bin:$PATH"
-
 # Path to jdk
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home
+
+# Path to go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go1.X
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
 
 # Path to Mujoco deps
 export MUJOCO_PY_MJKEY_PATH=$HOME/bin/mjkey.txt
@@ -104,7 +109,8 @@ alias py="ipython"
 # work aliases
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
 alias robo="$HOME/robotics_dev/dev_ws/src/cogitai_robotics"
-alias ab="$HOME/dev/arbiter_platform_bridge"
+alias ab="$HOME/robotics_dev/dev_ws/src/platform_arbiter_bridge"
+alias c3="cd /home/evan/go1.X/src/github.com/Cogitai/c3"
 
 ########################################################################
 # misc. tools
@@ -239,3 +245,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 # miniconda
 export PATH=/home/evan/miniconda3/bin:$PATH
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/Evan/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/Evan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/Evan/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/Evan/google-cloud-sdk/completion.zsh.inc'; fi
