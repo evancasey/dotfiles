@@ -29,9 +29,8 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORSCHEME 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vim-colors-solarized
-set background=light
-colorscheme solarized
+set rtp+=~/.vim/bundle/vim-atomified
+colorscheme atomified
 if has("syntax")
 	syntax enable
 endif
