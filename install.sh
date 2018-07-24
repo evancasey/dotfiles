@@ -2,8 +2,8 @@ sudo apt-get install curl zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-wget https://github.com/evancasey/dotfiles/raw/master/.vimrc -O $HOME/.vimrc
-wget https://github.com/evancasey/dotfiles/raw/master/.zshrc -O $HOME/.zshrc
+ln -sf $HOME/dropbox/dotfiles/.zshrc $HOME/.zshrc
+ln -sf $HOME/dropbox/dotfiles/.vimrc $HOME/.vimrc
 
 VUNDLE_HOME=$HOME/.vim/bundle
 
@@ -27,6 +27,3 @@ mkdir -p $COLORS_HOME
 wget https://github.com/evancasey/dotfiles/raw/master/solarized.vim -P $COLORS_HOME
 
 vim +PluginInstall +qall
-
-ln -s /home/$(whoami)/dropbox/dotfiles/.zshrc /home/$(whoami)/.zshrc
-ln -s /home/$(whoami)/dropbox/dotfiles/.vimrc /home/$(whoami)/.vimrc
