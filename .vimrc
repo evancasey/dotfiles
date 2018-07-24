@@ -30,7 +30,7 @@ call vundle#end()
 " COLORSCHEME 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vim-colors-solarized
-set background=light
+set background=dark
 colorscheme solarized
 if has("syntax")
 	syntax enable
@@ -60,7 +60,7 @@ let g:NERDTreeWinSize = 30
 let NERDTreeQuitOnOpen = 1
 nnoremap ,n :NERDTree<CR>
 let g:NERDTreeMapOpenSplit = '<C-x>'
-let g:NERDTreeMapOpenVSplit = '<C-v>'
+let g:NERDTreeMapOpenVSplit = '<C-l>'
 set encoding=utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

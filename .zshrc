@@ -67,9 +67,6 @@ export PATH=$PATH:$GOPATH/bin
 export MUJOCO_PY_MJKEY_PATH=$HOME/bin/mjkey.txt
 export MUJOCO_PY_MJPRO_PATH=$HOME/bin/mjpro131
 
-# Hadoop home
-export HADOOP_CLASSPATH="$HOME/bin/hadoop-2.8.0/lib"
-
 # Path to virtualenvwrapper script
 source /usr/local/bin/virtualenvwrapper.sh &> /dev/null
 
@@ -97,10 +94,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dv="cd ~/dev"
 alias sn="cd ~/dev/snippets"
-alias nr="cd ~/dev/narrative"
 alias dm="cd ~/dev/demeter"
-alias ai="cd ~/dev/aireverie"
-alias nr="cd ~/dev/narrative"
 
 # standard aliases
 alias vi="vim"
@@ -108,16 +102,11 @@ alias py="ipython"
 
 # work aliases
 alias pycharm="nohup $HOME/bin/pycharm-community-2017.1.2/bin/pycharm.sh >/dev/null 2>&1 &"
-alias robo="$HOME/robotics_dev/dev_ws/src/cogitai_robotics"
-alias ab="$HOME/robotics_dev/dev_ws/src/platform_arbiter_bridge"
-alias c3="cd /home/evan/go1.X/src/github.com/Cogitai/c3"
 
 ########################################################################
 # misc. tools
 ########################################################################
 
-alias restart_mysql="sudo /usr/local/mysql/bin/mysqld_safe"
-alias avt="java -jar ~/Dropbox/avro-tools-1.7.7.jar tojson $1"
 alias zshreload="source $DOTFILES_HOME/.zshrc"
 alias zshconf="vi $DOTFILES_HOME/.zshrc"
 alias viconf="vi $DOTFILES_HOME/.vimrc"
@@ -125,7 +114,7 @@ alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE && kill
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias kp="ps aux | percol | awk '{ print $2 }' | xargs kill -9"
 alias nvidia-smi="watch -n0.1 nvidia-smi"
-alias autopep="py $HOME/robotics_dev/dev_ws/src/cogitai_robotics/bin/autopep.py"
+#alias autopep="py $HOME/robotics_dev/dev_ws/src/cogitai_robotics/bin/autopep.py"
 
 psg() { 
   ps -ax | grep -i $1
@@ -139,13 +128,13 @@ find_big() {
   find . -type f -exec ls -s {} \; | sort -n -r | head -$n
 }
 
-gcl() {
-  grep -i $1 $2 | wc -l
-}  
+# gcl() {
+#  grep -i $1 $2 | wc -l
+#}  
 
 ts() { python -c "from datetime import datetime; print(datetime.fromtimestamp($1/1000).strftime('%Y-%m-%d %H:%M:%S.%f'))" }
 
-start_zulip() {
+zulip() {
   pushd ~/opt/zulip-electron
   nohup npm start &
   popd
@@ -232,18 +221,20 @@ function _zle_line_finish() {
 # misc
 ########################################################################
 
-export PATH=$PATH:$HOME/robotics_dev/docker/bin
-
 # cuda
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
-# TODO: do not set on osx
-#alias pbcopy='xclip -selection clipboard'
-#alias pbpaste='xclip -selection clipboard -o'
+# set pbcopy/pbpaste if on linux
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 # miniconda
-export PATH=/home/evan/miniconda3/bin:$PATH
+export PATH=/home/evan/opt/miniconda3/bin:$PATH
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/Evan/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/Evan/google-cloud-sdk/path.zsh.inc'; fi
