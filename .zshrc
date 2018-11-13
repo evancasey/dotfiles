@@ -95,6 +95,7 @@ alias dt="cd ~/Desktop"
 alias dv="cd ~/dev"
 alias sn="cd ~/dev/snippets"
 alias dm="cd ~/dev/demeter"
+alias ar="cd ~/dev/aireverie_vision"
 
 # standard aliases
 alias vi="vim"
@@ -221,6 +222,9 @@ function _zle_line_finish() {
 # misc
 ########################################################################
 
+# gcloud
+export PATH=$PATH:/usr/local/gcloud/google-cloud-sdk/bin
+
 # cuda
 export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -235,9 +239,21 @@ fi
 # miniconda
 export PATH=/home/evan/opt/miniconda3/bin:$PATH
 
+# bin
+export PATH=/home/evan/bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/Evan/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/Evan/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/Evan/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/Evan/google-cloud-sdk/completion.zsh.inc'; fi
+
+# aireverie
+export AIREVERIE_VISION_HOME=/home/evan/dev/aireverie_vision
+#export DEMETER_HOME=/home/evan/dev/demeter
+export PYTHONPATH=$AIREVERIE_VISION_HOME:$PYTHONPATH
+#export PYTHONPATH=$DEMETER_HOME:$PYTHONPATH
+export PATH=$AIREVERIE_VISION_HOME/airdrop/bin:$PATH
+#export PATH=$DEMETER_HOME/airdrop/bin:$PATH
+export TFSLIM=/home/evan/dev/aireverie_vision/third_party/models/research/slim
+export PYTHONPATH=$TFSLIM:$PYTHONPATH

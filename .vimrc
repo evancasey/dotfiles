@@ -30,7 +30,10 @@ call vundle#end()
 " COLORSCHEME 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vim-atomified
+set termguicolors
+set t_Co=256
 colorscheme atomified
+set background=light
 if has("syntax")
 	syntax enable
 endif
